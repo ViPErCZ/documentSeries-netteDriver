@@ -1,0 +1,31 @@
+{
+  "name": "vipercz/document-series_nette-driver",
+  "description": "Nette driver for documentSeries (https://github.com/ViPErCZ/documentSeries)",
+  "homepage": "http://vipersoftware.net",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Martin Chudoba",
+      "email": "info@vipersoftware.net",
+      "homepage": "http://vipersoftware.net"
+    }
+  ],
+  "require": {
+    "php": ">= 7.1",
+    "nette/application": "~2.4.0",
+    "nette/bootstrap": "~2.4.0",
+    "nette/caching": "~2.4.0",
+    "nette/database": "~2.4.0",
+    "nette/di": "~2.4.0",
+    "nette/http": "~2.4.0",
+    "nette/robot-loader": "~2.4.0",
+    "nette/safe-stream": "~2.3.0",
+    "nette/utils": "~2.4.0"
+  },
+  "require-dev": {
+    "vipercz/document-series": "dev-master",
+    "phpunit/phpunit": "^6.5",
+    "phpunit/dbunit": "^3.0"
+  }
+}
