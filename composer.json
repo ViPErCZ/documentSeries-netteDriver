@@ -21,10 +21,10 @@
     "nette/http": "~2.4.0",
     "nette/robot-loader": "~2.4.0",
     "nette/safe-stream": "~2.3.0",
-    "nette/utils": "~2.4.0"
+    "nette/utils": "~2.4.0",
+    "vipercz/document-series": "~1.0.0"
   },
   "require-dev": {
-    "vipercz/document-series": "dev-master",
     "phpunit/phpunit": "^6.5",
     "phpunit/dbunit": "^3.0"
   }

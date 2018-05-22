@@ -23,6 +23,18 @@ try {
 		echo 'NUMBER: ' . $number . PHP_EOL;
 	}
 
+	$accountingYear = $seriesOperator->getAccountingYear(1);
+	var_dump($accountingYear);
+
+	$accountingYear = \ViPErCZ\DocumentSeries\Entity\AccountingYear::create(3, 2020, true);
+	$accountingYearTest = $seriesOperator->getYear(new DateTime('2020-01-01 00:00:00'));
+	var_dump($accountingYearTest);
+	$seriesOperator->insertAccountingYear($accountingYear);
+	$accountingYearTest = $seriesOperator->getYear(new DateTime('2020-01-01 00:00:00'));
+	var_dump($accountingYearTest);
+
+	$seriesOperator->insertAccountingYear($accountingYear); // exception violation
+
 } catch (\ViPErCZ\DocumentSeries\DriverException $exception) {
 	echo $exception->getMessage() . PHP_EOL;
 }

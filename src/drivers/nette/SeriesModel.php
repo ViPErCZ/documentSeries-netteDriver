@@ -18,11 +18,11 @@ final class SeriesModel implements ISeriesModel, IGenerate {
 
 	use GenerateTrait;
 
-	/** @var Context */
-	private $connection;
-
 	/** Table name */
 	private const TABLE = 'documentSeries';
+
+	/** @var Context */
+	private $connection;
 
 	/**
 	 * SeriesModel constructor.
@@ -48,6 +48,28 @@ final class SeriesModel implements ISeriesModel, IGenerate {
 		} catch (\PDOException $exception) {
 			throw new DriverException($exception->getMessage());
 		}
+	}
+
+	/**
+	 * @param ActiveRow $serie
+	 * @return Serie
+	 */
+	private function createEntity(ActiveRow $serie): Serie {
+		$entity = new Serie();
+		$entity->setId($serie->id);
+		$entity->setAccountingYearId($serie->accountingYearId);
+		$entity->setCurrentNumber($serie->currentNumber);
+		$entity->setDateInserted($serie->dateInserted);
+		$entity->setMask($serie->mask);
+		$entity->setPrefix($serie->prefix);
+		$entity->setDocumentType($serie->documentType);
+		$entity->setForRobots($serie->forRobots);
+		$entity->setResetBy($serie->resetBy);
+		$entity->setNumbers($serie->numbers);
+		$entity->setDateUpdated($serie->dateUpdated);
+		$entity->setLastUse($serie->lastUse);
+
+		return $entity;
 	}
 
 	/**
@@ -96,27 +118,5 @@ final class SeriesModel implements ISeriesModel, IGenerate {
 		} catch (\PDOException $exception) {
 			throw new DriverException($exception->getMessage());
 		}
-	}
-
-	/**
-	 * @param ActiveRow $serie
-	 * @return Serie
-	 */
-	private function createEntity(ActiveRow $serie): Serie {
-		$entity = new Serie();
-		$entity->setId($serie->id);
-		$entity->setAccountingYearId($serie->accountingYearId);
-		$entity->setCurrentNumber($serie->currentNumber);
-		$entity->setDateInserted($serie->dateInserted);
-		$entity->setMask($serie->mask);
-		$entity->setPrefix($serie->prefix);
-		$entity->setDocumentType($serie->documentType);
-		$entity->setForRobots($serie->forRobots);
-		$entity->setResetBy($serie->resetBy);
-		$entity->setNumbers($serie->numbers);
-		$entity->setDateUpdated($serie->dateUpdated);
-		$entity->setLastUse($serie->lastUse);
-
-		return $entity;
 	}
 }
